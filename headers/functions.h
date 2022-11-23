@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "classes.h"
+#include "ClassList.h"
 
 List<int> PrefixFunction (List<char> &image);
 

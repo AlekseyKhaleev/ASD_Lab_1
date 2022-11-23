@@ -46,7 +46,7 @@ int FindFirst(List<char> &txt, List<char> &image)
     return -1;
 }
 
-void DeleteAllSeq(List<char> &txt, List<char> &image)
+void DeleteAllSeq(List<char> txt, List<char> &image)
 {
     int index = FindFirst(txt, image);
     while(index >= 0)

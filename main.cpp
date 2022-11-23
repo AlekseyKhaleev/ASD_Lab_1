@@ -1,13 +1,11 @@
 #include <iostream>
-#include "classes.h"
-#include "functions.h"
+#include "ClassList.h"
+
 
 int main(int argc, char** argv)
 {
-    setlocale(LC_ALL, "ru");
-    List<char> txt{}, seq{};
+    List<char> txt{}, seq{argv[2]};
     txt.ReadFromFile(argv[1]);
-    seq.Init(argv[2]);
     std::cout<<std::endl<<"Text:"<<std::endl;
     for(int i=0; i < txt.GetSize(); i++)
     {
@@ -18,7 +16,7 @@ int main(int argc, char** argv)
     {
         std::cout << seq[i];
     }
-    int ind = FindFirst(txt,seq);
+    int ind = txt.FindFirst(seq);
     std::cout<<std::endl<<"First finded index:"<<std::endl;
     std::cout<<ind;
     std::cout<<std::endl<<"this is:"<<std::endl;
@@ -26,13 +24,13 @@ int main(int argc, char** argv)
     {
         std::cout<<txt[i];
     }
+    txt.DeleteAllSeq(seq);
     std::cout<<std::endl<<"Text without sequence:"<<std::endl;
-
-    DeleteAllSeq(txt, seq);
     for(int i=0; i < txt.GetSize(); i++)
     {
         std::cout << txt[i];
     }
+    txt.WriteToFile(argv[3]);
     return 0;
 }
 
