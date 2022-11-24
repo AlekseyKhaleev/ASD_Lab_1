@@ -3,26 +3,30 @@
 #include <iostream>
 #include <fstream>
 
+
 template<typename T>
 class List
 {
 public:
+    //Конструкторы
     List();
+    List(List<T> const &);
     explicit List(const char*);
+
+    //Деструктор
     ~List();
-    void Insert(T, int);
-    void PushFront(T);
+
+    //Методы
     void PushBack(T);
     void PopFront();
-    void PopBack();
     void RemoveAt(int);
     void ReadFromFile(char*);
     void WriteToFile(char*);
-    int FindFirst(List<T>);
     void DeleteAllSeq(List<T>);
     int GetSize();
+    T Ind(int index) const;
     void Clear();
-    T& operator[](size_t);
+
 private:
     class Node
     {
@@ -37,7 +41,10 @@ private:
     };
     int size;
     Node *head;
-    List<int> PrefixFunction (List<T> image);
+
+    int FindFirst(List<T> image);
+
+    List<int> PrefixFunction(List<T> image);
 };
 
 // Конструкторы
@@ -55,6 +62,17 @@ List<T>::List(const char *str)
     while(*(str+size) != '\0')
     {
         PushBack(*(str+size));
+    }
+}
+
+template<typename T>
+List<T>::List(const List<T> &other)
+{
+    size=0;
+    head= nullptr;
+    for(int i=0;i<other.size;i++)
+    {
+        PushBack(other.Ind(i));
     }
 }
 
@@ -88,7 +106,7 @@ void List<T>::PushBack(T data)
 }
 
 template<typename T>
-int List<T>::GetSize() {
+int List<T>::GetSize(){
     return this->size;
 }
 
@@ -108,37 +126,6 @@ void List<T>::Clear()
     {
         this->PopFront();
     }
-}
-
-template<typename T>
-void List<T>::PushFront(T data)
-{
-    head = new Node(data, head);
-    size++;
-}
-
-template<typename T>
-void List<T>::Insert(T data, int index)
-{
-    if (index > size-1)
-    {
-        throw std::exception();
-    }
-
-    if (index == 0)
-    {
-        PushFront(data);
-    }
-    else
-    {
-        Node *previous = this->head;
-        for (int i=0; i < index-1; i++)
-        {
-            previous = previous->pNext;
-        }
-        previous->pNext = new Node(data, previous->pNext);
-    }
-    size++;
 }
 
 template<typename T>
@@ -166,30 +153,6 @@ void List<T>::RemoveAt(int index)
     }
     size--;
 }
-
-template<typename T>
-void List<T>::PopBack()
-{
-    RemoveAt(size-1);
-}
-
-template<typename T>
-T &List<T>::operator[](const size_t index) {
-    size_t counter{0};
-    Node *current = this->head;
-    while(current != nullptr)
-    {
-        if (counter == index)
-        {
-            return current->data;
-        }
-        current = current->pNext;
-        counter++;
-    }
-    throw std::exception();
-
-}
-
 
 template<typename T>
 void List<T>::ReadFromFile(char* path)
@@ -248,6 +211,9 @@ void List<T>::DeleteAllSeq(List<T> image)
     }
 }
 
+
+
+
 template<typename T>
 List<int> List<T>::PrefixFunction(List<T> image)
 {
@@ -257,12 +223,12 @@ List<int> List<T>::PrefixFunction(List<T> image)
     for (int i=1; i<image.GetSize(); ++i)
     {
         // ищем, какой префикс-суффикс можно расширить
-        int j = pi[i-1]; // длина предыдущего префикса-суффикса, возможно нулевая
-        while ((j > 0) && (image[i] != image[j]))// этот нельзя расширить,
+        int j = pi.Ind(i-1); // длина предыдущего префикса-суффикса, возможно нулевая
+        while ((j > 0) && (image.Ind(i) != image.Ind(j)))// этот нельзя расширить,
         {
-            j = pi[j - 1];   // берем длину меньшего префикса-суффикса
+            j = pi.Ind(j - 1);   // берем длину меньшего префикса-суффикса
         }
-        if (image[i] == image[j])
+        if (image.Ind(i) == image.Ind(j))
         {
             ++j;  // расширяем найденный (возможно пустой) префикс-суффикс
         }
@@ -274,14 +240,13 @@ List<int> List<T>::PrefixFunction(List<T> image)
 template<typename T>
 int List<T>::FindFirst(List<T> image)
 {
-    List<T> *txt = *this;
     List<int> pi = PrefixFunction(image);
-    int txtLen=txt->GetSize(), imgLen=image.GetSize();
+    int txtLen=this->GetSize(), imgLen=image.GetSize();
     for(int k=0,l=0;k<txtLen;)
     {
-        if(txt[k] != image[l])
+        if(this->Ind(k) != image.Ind(l))
         {
-            l == 0?k++:l = pi[l-1];
+            l == 0?k++:l = pi.Ind(l-1);
         }
         else
         {
@@ -295,4 +260,21 @@ int List<T>::FindFirst(List<T> image)
     }
     return -1;
 }
+
+template<typename T>
+T List<T>::Ind(int index) const {
+    int counter{0};
+    Node *current = this->head;
+    while(current != nullptr)
+    {
+        if (counter == index)
+        {
+            return current->data;
+        }
+        current = current->pNext;
+        counter++;
+    }
+    throw std::exception();
+}
+
 

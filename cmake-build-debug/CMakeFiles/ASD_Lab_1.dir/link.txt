@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/ASD_Lab_1.dir/main.cpp.o -o ASD_Lab_1 
