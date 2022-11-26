@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/kristofer/ASD_Lab_1/SyntaxException.cpp">
+			<Option target="ASD_Lab_1"/>
+		</Unit>
+		<Unit filename="/home/kristofer/ASD_Lab_1/SyntaxException.h">
+			<Option target="ASD_Lab_1"/>
+		</Unit>
 		<Unit filename="/home/kristofer/ASD_Lab_1/main.cpp">
 			<Option target="ASD_Lab_1"/>
 		</Unit>

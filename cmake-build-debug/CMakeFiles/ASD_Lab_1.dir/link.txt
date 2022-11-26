@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/ASD_Lab_1.dir/main.cpp.o -o ASD_Lab_1 
+/usr/bin/c++ -g CMakeFiles/ASD_Lab_1.dir/main.cpp.o CMakeFiles/ASD_Lab_1.dir/SyntaxException.cpp.o -o ASD_Lab_1 

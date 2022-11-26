@@ -129,6 +129,30 @@ ASD_Lab_1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ASD_Lab_1.dir/build.make CMakeFiles/ASD_Lab_1.dir/build
 .PHONY : ASD_Lab_1/fast
 
+SyntaxException.o: SyntaxException.cpp.o
+.PHONY : SyntaxException.o
+
+# target to build an object file
+SyntaxException.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ASD_Lab_1.dir/build.make CMakeFiles/ASD_Lab_1.dir/SyntaxException.cpp.o
+.PHONY : SyntaxException.cpp.o
+
+SyntaxException.i: SyntaxException.cpp.i
+.PHONY : SyntaxException.i
+
+# target to preprocess a source file
+SyntaxException.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ASD_Lab_1.dir/build.make CMakeFiles/ASD_Lab_1.dir/SyntaxException.cpp.i
+.PHONY : SyntaxException.cpp.i
+
+SyntaxException.s: SyntaxException.cpp.s
+.PHONY : SyntaxException.s
+
+# target to generate assembly for a file
+SyntaxException.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ASD_Lab_1.dir/build.make CMakeFiles/ASD_Lab_1.dir/SyntaxException.cpp.s
+.PHONY : SyntaxException.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ASD_Lab_1"
+	@echo "... SyntaxException.o"
+	@echo "... SyntaxException.i"
+	@echo "... SyntaxException.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

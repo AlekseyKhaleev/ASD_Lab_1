@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/kristofer/ASD_Lab_1/SyntaxException.cpp" "CMakeFiles/ASD_Lab_1.dir/SyntaxException.cpp.o" "gcc" "CMakeFiles/ASD_Lab_1.dir/SyntaxException.cpp.o.d"
   "/home/kristofer/ASD_Lab_1/main.cpp" "CMakeFiles/ASD_Lab_1.dir/main.cpp.o" "gcc" "CMakeFiles/ASD_Lab_1.dir/main.cpp.o.d"
   )
 
