@@ -1,6 +1,6 @@
 CMakeFiles/ASD_Lab_1.dir/SyntaxException.cpp.o: \
  /home/kristofer/ASD_Lab_1/SyntaxException.cpp /usr/include/stdc-predef.h \
- /home/kristofer/ASD_Lab_1/SyntaxException.h \
+ /home/kristofer/ASD_Lab_1/headers/SyntaxException.h \
  /usr/include/c++/11/stdexcept /usr/include/c++/11/exception \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

@@ -31,7 +31,7 @@ public:
 
    void ReadFromFile(char *);
 
-   void WriteToFile(char *);
+   void WriteToFile(const char *path= nullptr);
 
    void DeleteAllSeq(List<T>);
 
@@ -135,11 +135,8 @@ List<T>::List(const char *str)
 template<typename T>
 List<T>::~List()
 {
-   {
-      Clear();
-   }
+   Clear();
 }
-
 
 template<typename T>
 void List<T>::PushBack(T data)
@@ -232,8 +229,12 @@ void List<T>::ReadFromFile(char *path)
 }
 
 template<typename T>
-void List<T>::WriteToFile(char *path)
+void List<T>::WriteToFile(const char *path)
 {
+   if (path == nullptr)
+   {
+      path = "../output_file";
+   }
    std::ofstream file(path, std::ios::out | std::ios::trunc);
    if (file.is_open())
    {
@@ -248,6 +249,10 @@ void List<T>::WriteToFile(char *path)
    if (file.is_open())
    {
       throw std::exception();
+   }
+   else
+   {
+      std::cout<<"\n   The modified text was saved in: "<< path<< "\n\n";
    }
 }
 

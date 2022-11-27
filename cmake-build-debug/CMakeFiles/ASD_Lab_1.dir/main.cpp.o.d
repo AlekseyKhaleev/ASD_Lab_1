@@ -150,4 +150,4 @@ CMakeFiles/ASD_Lab_1.dir/main.cpp.o: /home/kristofer/ASD_Lab_1/main.cpp \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/kristofer/ASD_Lab_1/SyntaxException.h
+ /home/kristofer/ASD_Lab_1/headers/SyntaxException.h
